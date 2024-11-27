@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="./output.css" rel="stylesheet">
+<body class="bg-yellow-400">
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+      </h1>
+    <table class="table-auto">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th colspan="2">Item</th>
+                <th>Sold</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-th-each="product : ${products}">
+                <td class="border" data-th-utext="${product.id}" name="id"></td>
+                <td data-th-utext="${product.item}" name="item"></td>
+                <td>
+                    <img data-th-src="${product.picture}" height="100px" width="100px">
+                </td>
+                <td data-th-utext="${product.sold}" name="sold"></td>
+                <td data-th-utext="${product.quantity}" name="quantity"></td>
+                <td>
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-th-href="@{/products/buy/{id} (id=${product.id})}">Buy</a>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>
